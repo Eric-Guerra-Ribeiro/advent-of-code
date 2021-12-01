@@ -1,10 +1,13 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int increasesOfDepth(const vector<int> &depthMeasurements){
+int movingIncreasesOfDepth(const vector<int> &depthMeasurements, int numberOfDepths){
+    if (numberOfDepths > depthMeasurements.size()){
+        exit(1);
+    }
     int increases = 0;
-    for (int i = 1; i < depthMeasurements.size(); ++i){
-        if (depthMeasurements[i-1] < depthMeasurements[i]){
+    for (int i = numberOfDepths; i < depthMeasurements.size(); ++i){
+        if (depthMeasurements[i-numberOfDepths] < depthMeasurements[i]){
             ++increases;
         }
     }
@@ -22,6 +25,7 @@ int main(){
     while (input >> depth){
         depthMeasurements.emplace_back(depth);
     }
-    cout << increasesOfDepth(depthMeasurements) << "\n";
+    cout << movingIncreasesOfDepth(depthMeasurements, 1) << "\n";
+    cout << movingIncreasesOfDepth(depthMeasurements, 3) << "\n";
     return 0;
 }
