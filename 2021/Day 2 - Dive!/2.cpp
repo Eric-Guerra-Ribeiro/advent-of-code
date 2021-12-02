@@ -10,19 +10,22 @@ int main(){
 
     int depth = 0;
     int horizontalPosition = 0;
+    int aim = 0;
     string direction;
     int X;
     while (input >> direction >> X){
         if (direction == "forward"){
             horizontalPosition += X;
+            depth += aim*X;
         }
         else if (direction == "up"){
-            depth -= X;
+            aim -= X;
         }
         else if (direction == "down"){
-            depth += X;
+            aim += X;
         }
     }
-    cout << depth*horizontalPosition << "\n";
+    cout << "Part 1: " << aim*horizontalPosition << "\n";
+    cout << "Part 2: " << depth*horizontalPosition << "\n";
     return 0;
 }
