@@ -39,7 +39,6 @@ int main(){
 
     input.open("input.txt", ios::in);
 
-    int i = 0;
     do {
         getline(input, line);
         if (line == "") {
